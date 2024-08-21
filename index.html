@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Beautifier</title>
+    <link rel="stylesheet" href="style.css" />
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-dark.min.css" rel="stylesheet" id="prism-dark-theme">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Code Beautifier</h1>
+
+      <label for="fileInput" id="fileInputLabel">Select File:</label>
+      <input type="file" id="fileInput" accept=".js, .jsx, .html, .css" />
+
+      <textarea
+        id="codeInput"
+        placeholder="Or paste your code here..."
+      ></textarea>
+
+      <label for="fileType">Select Code Type:</label>
+      <select id="fileType">
+        <option value="javascript">JavaScript</option>
+        <option value="jsx">JSX</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+      </select>
+
+      <div class="comment-removal">
+        <label for="removeComments">Remove Comments</label>
+        <input type="checkbox" id="removeComments" />
+      </div>
+
+      <button onclick="beautifyCode()">Beautify</button>
+      <button onclick="copyCode()">Copy</button>
+      <button onclick="pasteClipboard()">Paste</button>
+      <button class="clear-button" onclick="clearText()">Clear</button>
+
+      <h3>Beautified Code:</h3>
+      <pre><code id="result" class="language-javascript"></code></pre>
+    </div>
+
+    <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
+    <script src="https://unpkg.com/prettier@2.8.8/parser-postcss.js"></script>
+    <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
