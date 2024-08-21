@@ -35,15 +35,18 @@ async function pasteClipboard() {
     });
 
     if (clipboardPermission.state === 'granted') {
+      // Permission is already granted
       const text = await navigator.clipboard.readText();
       document.getElementById('codeInput').value = text;
       toggleClearButton(); // Show the clear button if there is text
     } else if (clipboardPermission.state === 'prompt') {
+      // Permission is not granted yet, prompt the user
       alert(
-        'Clipboard access permission is required. Please grant permission in your browser settings.'
+        'Clipboard access permission is required. Please grant permission in your browser settings to enable pasting from clipboard.'
       );
     } else {
-      alert('Clipboard access is denied.');
+      // Permission is denied
+      alert('Clipboard access is denied. You need to enable clipboard access to use this feature.');
     }
   } catch (err) {
     alert('Failed to access clipboard: ' + err.message);
